@@ -19,7 +19,7 @@ header {
 /* Search */
 .search {
   text-align: center;
-  margin-top: 30px;
+  margin: 30px 0;
 }
 
 h2 {
@@ -41,4 +41,65 @@ input[type=submit] {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
+}
+
+/* Movies */
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 100px;
+}
+
+.movie {
+  margin: 30px;
+  text-align: center;
+  width: 250px;
+  border: skyblue 2px solid;
+  padding: 20px;
+}
+
+.movie .image {
+  height: 350px;
+}
+
+.movie a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Movie detail */
+.movieDetail {
+  margin: 30px auto;
+  text-align: center;
+  width: 450px;
+  border: skyblue 2px solid;
+  padding: 40px;
+}
+
+.movieDetail h2 {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+table {
+  display: flex;
+  text-align: left;
+}
+
+table tr {
+  display: flex;
+  flex-direction: column;
+}
+
+table tr th {
+  width: 100px;
+}
+
+table tr td {
+  width: 300px;
+}
+
+table tr th, table tr td {
+  margin-bottom: 10px;
 }
