@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const default_image =
   "https://upload.wikimedia.org/wikipedia/en/0/00/The_Child_aka_Baby_Yoda_%28Star_Wars%29.jpg";
 
-
 const Movie = ({ movie }) => {
     const poster =
         movie.Poster === "N/A" ? default_image : movie.Poster; // if there's no image use default image
+    
     return (
         <div className="movie" key={movie.imdbID}>
             <Link to={"/movie/"+movie.imdbID} >
