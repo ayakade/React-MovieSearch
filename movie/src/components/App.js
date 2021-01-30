@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from "react";
 // useState ref: https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#:~:text=useState%20is%20a%20Hook%20that,function%20to%20update%20this%20value.&text=Declaring%20state%20in%20React,React%20Hooks%3A%20Update%20state
+import { useEffect } from "react";
+// useEffect ref: https://dmitripavlutin.com/react-useeffect-explanation/#:~:text=useEffect()%20executes%20the%20callback,dependencies%20have%20changed%20between%20renderings.
 
 // import compornents
 import Header from './Header';
@@ -13,13 +15,14 @@ const api_url = "http://www.omdbapi.com/?s=pretty&apikey=fe90ea07";
 const App = () => {
   const [movies, setMovies] = useState([]);
 
-  // attach movie data from API (movies search word "pretty")
-  fetch(api_url)
-    .then(response => response.json())
-    .then(jsonResponse => {
-      // console.log(jsonResponse);
-      setMovies(jsonResponse.Search);
-    });
+  // change movies display based on search word (default search word is "pretty")
+  useEffect(() => {
+    fetch(api_url)
+      .then(response => response.json())
+      .then(jsonResponse => {
+        setMovies(jsonResponse.Search);
+      });
+  }, []);
 
   // search movie from search word
   const search = (searchMovie) => {
