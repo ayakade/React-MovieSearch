@@ -1,32 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 const Search = (props) => {
-  const [searchValue, setSearchValue] = useState("");
-  
-  const handleSearchInputChanges = (e) => {
-    setSearchValue(e.target.value);
-  }
+    const [searchMovie, setSearchMovie] = useState("");
+    
+    // update value in input field
+    const searchMovieTitle = (e) => {
+        setSearchMovie(e.target.value);
+    }
 
-  const resetInputField = () => {
-    setSearchValue("")
-  }
+    const callSearchFunction = (e) => {
+        e.preventDefault();
+        props.search(searchMovie);
+    }
 
-  const callSearchFunction = (e) => {
-    e.preventDefault();
-    props.search(searchValue);
-    resetInputField();
-  }
-
-  return (
-      <form className="search">
-        <h2>Find a movie</h2>
-        <input
-          value={searchValue}
-          onChange={handleSearchInputChanges}
-          type="text"
-        />
-        <input onClick={callSearchFunction} type="submit" value="SEARCH" />
-      </form>
+    return (
+        <form className="search">
+            <h2>Find a movie</h2>
+            <input
+                value={searchMovie}
+                onChange={searchMovieTitle}
+                type="text"
+                placeholder="type movie title"
+            />
+            <input 
+                onClick={callSearchFunction} 
+                type="submit" 
+                value="Search" 
+            />
+        </form>
     );
 }
 
